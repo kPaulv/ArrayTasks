@@ -16,8 +16,8 @@ public class JaggedArray {
             this.jagged[i] = new int[jagged[i].length];
         }
         for(int i = 0; i < jagged.length; i++) {
-            for(int j = 0; j < jagged.length; j++) {
-                this.jagged[j] = new int[jagged[i].length];
+            for(int j = 0; j < jagged[i].length; j++) {
+                this.jagged[i][j] = jagged[i][j];
             }
         }
         logger.info("New jagged array created.");
@@ -39,8 +39,12 @@ public class JaggedArray {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("JaggedArray{");
-        sb.append("jagged=").append(Arrays.toString(jagged));
-        sb.append('}');
+        sb.append("jagged=");
+        for(int i = 0; i < jagged.length - 1; i++) {
+            sb.append(Arrays.toString(jagged[i])).append(", ");
+        }
+
+        sb.append(Arrays.toString(jagged[jagged.length - 1])).append('}');
         return sb.toString();
     }
 
@@ -64,7 +68,7 @@ public class JaggedArray {
             }
         }
         for(int i = 0; i < jagged.length; i++) {
-            for(int j = 0; j < jagged.length; j++) {
+            for(int j = 0; j < jagged[i].length; j++) {
                 if(jagged[i][j] != that.jagged[i][j]) {
                     return false;
                 }

@@ -38,6 +38,7 @@ public class SortJaggedService {
         for(int i = 0; i < increaseArray.length; i++) {
             tempArray[i] = copyArray(increaseArray[increaseArray.length - 1 - i]);
         }
+        logger.info("Array sorted by sum decrease with bubble sort.");
         return tempArray;
     }
 
@@ -69,7 +70,7 @@ public class SortJaggedService {
             }
             bound--;
         }
-        logger.info("Array sorted by sum increase with bubble sort.");
+        logger.info("Array sorted by max increase with bubble sort.");
         return tempArray;
     }
 
@@ -80,6 +81,7 @@ public class SortJaggedService {
         for(int i = 0; i < increaseArray.length; i++) {
             tempArray[i] = copyArray(increaseArray[increaseArray.length - 1 - i]);
         }
+        logger.info("Array sorted by max decrease with bubble sort.");
         return tempArray;
     }
 
@@ -113,7 +115,7 @@ public class SortJaggedService {
             }
             bound--;
         }
-        logger.info("Array sorted by sum increase with bubble sort.");
+        logger.info("Array sorted by min increase with bubble sort.");
         return tempArray;
     }
 
@@ -124,6 +126,7 @@ public class SortJaggedService {
         for(int i = 0; i < increaseArray.length; i++) {
             tempArray[i] = copyArray(increaseArray[increaseArray.length - 1 - i]);
         }
+        logger.info("Array sorted by min decrease with bubble sort.");
         return tempArray;
     }
 

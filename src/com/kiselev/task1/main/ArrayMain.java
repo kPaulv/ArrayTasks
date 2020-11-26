@@ -1,11 +1,10 @@
 package com.kiselev.task1.main;
 
 import com.kiselev.task1.entity.Array;
+import com.kiselev.task1.entity.JaggedArray;
 import com.kiselev.task1.report.ArrayReport;
-import com.kiselev.task1.service.CreateArrayService;
-import com.kiselev.task1.service.FibonacciService;
-import com.kiselev.task1.service.SearchArrayService;
-import com.kiselev.task1.service.SortArrayService;
+import com.kiselev.task1.report.JaggedArrayReport;
+import com.kiselev.task1.service.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -73,7 +72,35 @@ public class ArrayMain {
             Array fibonacci = new Array(fibonacciNumbers);
             report.showFibonacciArray(fibonacci);
 
+            int[][] jaggedArray = new int[][]{
+                    {14, 12, 1, 10},
+                    {0, 0, 996},
+                    {-1798, 266, 45, 3},
+                    {0, 0, 0, 0, 0},
+                    {7, 18, 5, 26, 33, 79, 54}
+            };
+            JaggedArray jagged = new JaggedArray(jaggedArray);
+            JaggedArrayReport jaggedReport = new JaggedArrayReport();
+            jaggedReport.showArray(jaggedArray);
 
+            SortJaggedService sortJaggedService = new SortJaggedService();
+            jaggedArray = sortJaggedService.sumIncreaseSort(jagged);
+            jaggedReport.showArray(jaggedArray);
+
+            jaggedArray = sortJaggedService.sumDecreaseSort(jagged);
+            jaggedReport.showArray(jaggedArray);
+
+            jaggedArray = sortJaggedService.maxIncreaseSort(jagged);
+            jaggedReport.showArray(jaggedArray);
+
+            jaggedArray = sortJaggedService.maxDecreaseSort(jagged);
+            jaggedReport.showArray(jaggedArray);
+
+            jaggedArray = sortJaggedService.minIncreaseSort(jagged);
+            jaggedReport.showArray(jaggedArray);
+
+            jaggedArray = sortJaggedService.minDecreaseSort(jagged);
+            jaggedReport.showArray(jaggedArray);
 
         } catch (IOException e) {
             System.out.println("Input Error.");
